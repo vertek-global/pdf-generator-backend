@@ -1,0 +1,172 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titling}
+\usepackage{noto}
+\usepackage{sectsty}
+\usepackage{parskip}
+\usepackage{array}
+
+% Professional styling with spacing
+\definecolor{accentblue}{RGB}{0, 102, 204}
+\definecolor{headergray}{RGB}{80, 80, 80}
+\definecolor{buttoncolor}{RGB}{50, 82, 123}
+\definecolor{green}{RGB}{85, 187, 101}
+\hypersetup{colorlinks=true, linkcolor=accentblue, urlcolor=accentblue}
+\sectionfont{\color{headergray}\Large\bfseries}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{12pt}
+\setlist[itemize]{leftmargin=*, itemsep=4pt, topsep=4pt}
+
+% Dynamic placeholders
+\newcommand{\prospectname}{{ prospectname }}
+\newcommand{\firstname}{{ firstname }}
+\newcommand{\numreceptionists}{{ numreceptionists }}
+\newcommand{\receptionistcost}{{ receptionistcost }}
+\newcommand{\aiyearcost}{{ aiyearcost }}
+\newcommand{\aisubsequentcost}{{ aisubsequentcost }}
+\newcommand{\savings}{{ savings }}
+\newcommand{\recurringsavings}{{ recurringsavings }}
+
+\begin{document}
+
+% Header
+\begin{center}
+    \vspace*{0.5cm}
+    \IfFileExists{static/logo.png}{\includegraphics[width=0.28\textwidth]{static/logo.png}}{\textbf{[Your Logo Here]}}\\[0.6cm]
+    {\LARGE\bfseries AI in Medical Communications: A 2025 Outlook}\\[0.4cm]
+    {\large How Voice AI is Reshaping Frontline Patient Interactions for \prospectname}\\[1cm]
+\end{center}
+
+\vspace{0.2cm}
+\begin{flushright}
+    \textit{``AI voice agents are the new front desk.''} \\
+    -- Digital Health Strategist, Accenture
+\end{flushright}
+
+\vspace{1cm}
+Hello \firstname,
+
+\vspace{0.5cm}
+Thank you for taking the first step toward transforming \prospectname\ with AI-driven solutions. In the next 6 to 12 months, voice AI will become essential for healthcare operations, enabling leading providers to streamline appointment booking, triage calls, and manage follow-ups while reducing costs and enhancing patient access.
+
+\vspace{0.5cm}
+
+% Section 1
+\section*{What's Happening in Healthcare Right Now}
+\textbf{The Shift is Already Underway}
+\begin{itemize}
+    \item 67\% of patient calls in outpatient clinics are missed or delayed due to overwhelmed front-desk teams.
+    \item Administrative burnout is a top 3 reason for clinic staff turnover (AMA, 2024).
+    \item CMS and private insurers are tightening response time SLAs and access parity requirements.
+\end{itemize}
+
+\textbf{Key Takeaway:} Clinics like \prospectname\ failing to respond promptly risk losing patients and reimbursements.
+
+\newpage
+
+% Section 2
+\section*{Why Voice AI is the Solution}
+\textbf{Advantages for 2025}
+\begin{itemize}
+    \item 24/7 response with zero wait times.
+    \item Fully HIPAA-compliant scripting and audit logs.
+    \item Handles high call volumes instantly, eliminating hold queues.
+    \item Reduces administrative costs by 40--60\% based on role replacement.
+\end{itemize}
+
+\vspace{0.8cm}
+\begin{flushright}
+    \textit{``Our AI receptionist answers 90\% of calls, eliminating drops and saving \$75K annually.''} \\
+    -- Practice Manager, Regional Family Health Group
+\end{flushright}
+
+\vspace{1cm}
+
+% Section 3
+\section*{Timeline: The Next 6--12 Months}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{9cm}}
+    \toprule
+    \textbf{Period} & \textbf{Industry Movement} \\
+    \midrule
+    \addlinespace[0.3cm]
+    July--Aug 2025 & Large provider networks deploy AI voice for tier-1 call routing (appointments, hours, FAQs). \\
+    \addlinespace[0.3cm]
+    Sept--Nov 2025 & Mid-size clinics adopt voice agents amid staffing shortages and flu season call spikes. \\
+    \addlinespace[0.3cm]
+    Dec--Feb 2026 & AI voice becomes a standard requirement in RFPs and payer expectations. \\
+    \bottomrule
+\end{tabular}
+
+\vspace{1cm}
+\begin{flushright}
+    \textit{``AI voice will be standard in primary care within 12--18 months.''} \\
+    -- Sam Altman, CEO, OpenAI
+\end{flushright}
+
+\vspace{1cm}
+
+% Section 4
+\section*{The Opportunity for \prospectname}
+\textbf{Your Operational Advantage}
+\begin{itemize}
+    \item Receiving over 500 calls monthly?
+    \item Employing 1+ full-time receptionist?
+    \item Staff overburdened or patients waiting?
+\end{itemize}
+
+\newpage
+Voice AI delivers cost savings and operational efficiency for \prospectname.
+
+\vspace{0.5cm}
+
+% Section 5
+\section*{Personalized Cost-Savings Overview for \prospectname}
+\begin{tabular}{ll}
+    \toprule
+    \textbf{\# of Receptionists} & \numreceptionists \\
+    \textbf{Annual Reception Staff Cost} & \receptionistcost \\
+    \textbf{AI Year 1 Cost (incl. setup)} & \aiyearcost \\
+    \textbf{AI Year 2+ Cost} & \aisubsequentcost \\
+    \textbf{Year 1 Estimated Savings} & \textcolor{green}{\savings} \\
+    \textbf{Year 2+ Estimated Annual Savings} & \textcolor{green}{\recurringsavings} \\
+    \bottomrule
+\end{tabular}
+
+\vspace{0.5cm}
+\textbf{“\firstname, by switching to voice AI, you are projected to save \textcolor{green}{\savings} in the first year, and \textcolor{green}{\recurringsavings} every year after — without compromising patient service.”}
+
+\vspace{0.4cm}
+{\small **All estimates assume an average call length of 2 minutes at \$0.13 per minute.}
+
+\vspace{0.5cm}
+
+% Section 6
+\section*{Next Steps: Let’s Build Your AI Front Desk}
+\textbf{Custom-Built for Your Clinic}
+\begin{itemize}
+    \item 24/7 coverage, from appointment scheduling to triage and follow-ups
+    \item Fully customizable scripts, tailored to your patient experience
+    \item HIPAA-compliant with EHR compatibility
+    \item Live in as little as 14 days
+\end{itemize}
+
+\vspace{0.4cm}
+\begin{center}
+    \fcolorbox{white}{buttoncolor}{
+        \parbox[c][1.2cm][c]{0.7\textwidth}{
+            \centering
+            \href{https://cal.com/vertekglobal/consultation}{\color{white}\bfseries Book a Free Consultation}
+        }
+    }
+\end{center}
+
+\end{document}
