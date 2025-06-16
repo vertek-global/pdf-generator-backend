@@ -1,0 +1,18 @@
+{
+    "build": {
+      "env": {
+        "PORT": "3000"
+      }
+    },
+    "deploy": {
+      "init_script": "",
+      "build_script": "",
+      "start_script": ""
+    },
+    "project": {
+      "development": {
+        "plugins": []
+      }
+    }
+  }
+  
