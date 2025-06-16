@@ -87,7 +87,7 @@ def generate_pdf():
         response = send_file(
             temp_pdf_file,
             as_attachment=True,
-            download_name=f"report_{temp_id}.pdf",
+            download_name="AI_Cost_Savings_Report.pdf",
             mimetype='application/pdf'
         )
 

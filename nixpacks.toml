@@ -1,0 +1,8 @@
+[phases.setup]
+nixpkgs = ["texlive.combined.scheme-full", "python39", "gcc"]
+
+[phases.install]
+cmds = ["python -m venv /opt/venv", ". /opt/venv/bin/activate", "pip install -r requirements.txt"]
+
+[phases.start]
+cmd = "gunicorn app:app --bind 0.0.0.0:$PORT"
