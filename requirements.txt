@@ -1,4 +1,5 @@
 Flask
 python-dotenv
 pdflatex
-gunicorn==23.0.0
+gunicorn
+flask_cors
