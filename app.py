@@ -61,7 +61,8 @@ def generate_pdf():
         # Run pdflatex twice to ensure proper PDF generation
         for i in range(2):
             result = subprocess.run(
-                ["/Library/TeX/texbin/pdflatex", "-interaction=nonstopmode", temp_tex_file],
+                ["pdflatex", "-interaction=nonstopmode", temp_tex_file],
+
                 capture_output=True,
                 text=True
             )
