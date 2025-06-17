@@ -50,17 +50,37 @@ def generate_pdf():
         logger.error(f"Error reading template: {str(e)}")
         return {"error": f"Could not read template file: {str(e)}"}, 500
 
+    # Log received data for debugging
+    logger.debug(f"Received data: {data}")
+
+    # Mapping JSON keys to LaTeX commands
+    latex_mapping = {
+        "firstName": "firstname",
+        "lastName": "lastname",
+        "company": "prospectname",
+        "email": "email",
+        "phone": "phone",
+        "website": "website",
+        "receptionists": "numreceptionists",
+        "salary": "receptionistcost",
+        "calls": "calls"
+    }
+
     # Replace LaTeX \newcommand variables dynamically
-    for key, value in data.items():
-        # Escape special LaTeX characters
-        value = str(value).replace('&', '\\&').replace('%', '\\%').replace('$', '\\$')
-        value = value.replace('_', '\\_').replace('#', '\\#').replace('^', '\\^{}')
-        pattern = re.compile(rf"(\\newcommand{{\\{key}}}{{)(.*?)}}")
-        original = pattern.search(tex_content)
-        if original:
-            logger.debug(f"Replacing {key} from {original.group(2)} to {value}")
-        tex_content = pattern.sub(lambda m: f"{m.group(1)}{value}", tex_content)
-    logger.debug(f"Modified template content: {tex_content[:500]}...")
+    for json_key, value in data.items():
+        if json_key in latex_mapping:
+            latex_key = latex_mapping[json_key]
+            # Escape special LaTeX characters
+            value = str(value).replace('&', '\\&').replace('%', '\\%').replace('$', '\\$')
+            value = value.replace('_', '\\_').replace('#', '\\#').replace('^', '\\^{}')
+            pattern = re.compile(rf"(\\newcommand{{\\{latex_key}}}{{)(.*?)}}")
+            original = pattern.search(tex_content)
+            if original:
+                logger.debug(f"Replacing \\{latex_key} from '{original.group(2)}' to '{value}'")
+            tex_content = pattern.sub(lambda m: f"{m.group(1)}{value}", tex_content)
+            # Replace command invocations in the document
+            tex_content = tex_content.replace(f'\\{latex_key}', value)
+    logger.debug(f"Modified template sample: {tex_content[:500]}...")
 
     # Write to a temporary .tex file
     try:
