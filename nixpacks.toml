@@ -1,5 +1,5 @@
 [phases.setup]
-nixpkgs = ["texlive.combined.scheme-full", "python39", "gcc"]
+nixpkgs = ["texlive.combined.scheme-full", "python39", "gcc", "noto-fonts"]
 
 [phases.install]
 cmds = ["python -m venv /opt/venv", ". /opt/venv/bin/activate", "pip install -r requirements.txt"]
