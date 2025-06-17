@@ -49,9 +49,10 @@ def generate_pdf():
         # Escape special LaTeX characters
         value = str(value).replace('&', '\\&').replace('%', '\\%').replace('$', '\\$')
         value = value.replace('_', '\\_').replace('#', '\\#').replace('^', '\\^{}')
-        tex_content = tex_content.replace(f"\\{key}", value)
-    logger.debug(f"Modified template content length: {len(tex_content)}")
-    logger.debug(f"Sample replacement: \\{list(data.keys())[0]} -> {data[list(data.keys())[0]]}")
+        # Replace both the command and its placeholder
+        tex_content = tex_content.replace(f'\\{key}', value)
+        tex_content = tex_content.replace(f'{{{key}}}', value)
+    logger.debug(f"Final modified template content: {tex_content[:500]}...") # Log first 500 chars
 
     # Write to a temporary .tex file
     try:
