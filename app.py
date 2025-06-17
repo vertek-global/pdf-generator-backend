@@ -75,9 +75,10 @@ def generate_pdf():
                 error_file = f"/tmp/latex_error_{temp_id}.log"
                 with open(error_file, "w") as f:
                     f.write(result.stderr)
+                error_content = result.stderr if os.path.exists(error_file) else "Error file not found"
                 for line in result.stderr.splitlines():
                     logger.error(line)
-                return {"error": f"PDF generation failed. Check {error_file} for details: {result.stderr}"}, 500
+                return {"error": f"PDF generation failed. Error details: {error_content}"}, 500
             logger.debug(f"LaTeX compilation output (run {i+1}): {result.stdout}")
 
         if not os.path.exists(temp_pdf_file):
