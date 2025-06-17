@@ -13,6 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy app code
 COPY . .
 
-# Expose the port Railway expects
-ENV PORT 8080
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
+# Use Railway's PORT
+CMD ["gunicorn", "--bind", "0.0.0.0:$PORT", "app:app"]
