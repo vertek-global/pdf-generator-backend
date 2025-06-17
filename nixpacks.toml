@@ -1,8 +1,14 @@
 [phases.setup]
-nixpkgs = ["texlive.combined.scheme-full", "python39", "gcc", "noto-fonts"]
+nixpkgs = ["texlive.combined.scheme-full", "python39"]
 
 [phases.install]
-cmds = ["python -m venv /opt/venv", ". /opt/venv/bin/activate", "pip install -r requirements.txt"]
+cmds = [
+  "export PATH=/nix/store/*/texlive-*/bin:$PATH",
+  "which pdflatex || { echo 'pdflatex not found'; exit 1; }",
+  "python -m venv /opt/venv",
+  ". /opt/venv/bin/activate",
+  "pip install -r requirements.txt"
+]
 
 [phases.start]
 cmd = "gunicorn app:app --bind 0.0.0.0:$PORT"

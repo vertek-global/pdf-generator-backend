@@ -6,13 +6,14 @@ import uuid
 import re
 import io
 import logging
+import shutil
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["https://vertekglobal.com"])  # Explicitly allow vertekglobal.com
 
 @app.route("/generate", methods=["POST"])
 def generate_pdf():
@@ -34,6 +35,11 @@ def generate_pdf():
     logger.debug(f"Temp files (absolute paths):")
     logger.debug(f"  TEX: {os.path.abspath(temp_tex_file)}")
     logger.debug(f"  PDF: {os.path.abspath(temp_pdf_file)}")
+
+    # Check pdflatex availability
+    if not shutil.which("pdflatex"):
+        logger.error("pdflatex not found in PATH")
+        return {"error": "pdflatex executable not found"}, 500
 
     # Read the template content
     try:
