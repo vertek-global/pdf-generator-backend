@@ -49,8 +49,9 @@ def generate_pdf():
         # Escape special LaTeX characters
         value = str(value).replace('&', '\\&').replace('%', '\\%').replace('$', '\\$')
         value = value.replace('_', '\\_').replace('#', '\\#').replace('^', '\\^{}')
-        pattern = re.compile(rf"(\\newcommand{{\\{key}}}{{)(.*?)}}")
-        tex_content = pattern.sub(lambda m: f"{m.group(1)}{value}", tex_content)
+        tex_content = tex_content.replace(f"\\{key}", value)
+    logger.debug(f"Modified template content length: {len(tex_content)}")
+    logger.debug(f"Sample replacement: \\{list(data.keys())[0]} -> {data[list(data.keys())[0]]}")
 
     # Write to a temporary .tex file
     try:
