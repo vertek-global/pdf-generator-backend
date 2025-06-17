@@ -3,7 +3,7 @@ nixpkgs = ["texlive.combined.scheme-full", "python39"]
 
 [phases.install]
 cmds = [
-  "export PATH=/nix/store/*/texlive-*/bin:$PATH",
+  "export PATH=/nix/store/$(ls -d /nix/store/*-texlive-*/bin 2>/dev/null || echo '/usr/bin'):$PATH",  # Dynamic PATH
   "which pdflatex || { echo 'pdflatex not found'; exit 1; }",
   "python -m venv /opt/venv",
   ". /opt/venv/bin/activate",
