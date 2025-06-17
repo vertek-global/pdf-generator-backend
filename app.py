@@ -72,9 +72,12 @@ def generate_pdf():
             )
             if result.returncode != 0:
                 logger.error(f"LaTeX compilation error (run {i+1}):")
+                error_file = f"/tmp/latex_error_{temp_id}.log"
+                with open(error_file, "w") as f:
+                    f.write(result.stderr)
                 for line in result.stderr.splitlines():
                     logger.error(line)
-                return {"error": f"PDF generation failed: {result.stderr}"}, 500
+                return {"error": f"PDF generation failed. Check {error_file} for details: {result.stderr}"}, 500
             logger.debug(f"LaTeX compilation output (run {i+1}): {result.stdout}")
 
         if not os.path.exists(temp_pdf_file):
