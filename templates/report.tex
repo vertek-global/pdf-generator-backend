@@ -11,6 +11,42 @@
 \usepackage{sectsty}
 \usepackage{parskip}
 \usepackage{array}
+
+% Professional styling with spacing
+\definecolor{accentblue}{RGB}{0, 102, 204}
+\definecolor{headergray}{RGB}{80, 80, 80}
+\definecolor{buttoncolor}{RGB}{50, 82, 123}
+\definecolor{green}{RGB}{85, 187, 101}
+\hypersetup{colorlinks=true, linkcolor=accentblue, urlcolor=accentblue}
+\sectionfont{\color{headergray}\Large\bfseries}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{12pt}
+\setlist[itemize]{leftmargin=*, itemsep=4pt, topsep=4pt}
+
+% Dynamic placeholders
+\newcommand{\prospectname}{{ prospectname }}
+\newcommand{\firstname}{{ firstname }}
+\newcommand{\numreceptionists}{{ numreceptionists }}
+\newcommand{\receptionistcost}{{ receptionistcost }}
+\newcommand{\aiyearcost}{{ aiyearcost }}
+\newcommand{\aisubsequentcost}{{ aisubsequentcost }}
+\newcommand{\savings}{{ savings }}
+\newcommand{\recurringsavings}{{ recurringsavings }}
+
 \begin{document}
-Test
+
+% Header
+\begin{center}
+    \vspace*{0.5cm}
+    \IfFileExists{static/logo.png}{\includegraphics[width=0.28\textwidth]{static/logo.png}}{\textbf{[Your Logo Here]}}\\[0.6cm]
+    {\LARGE\bfseries AI in Medical Communications: A 2025 Outlook}\\[0.4cm]
+    {\large How Voice AI is Reshaping Frontline Patient Interactions for \prospectname}\\[1cm]
+\end{center}
+
+\vspace{0.2cm}
+\begin{flushright}
+    \textit{``AI voice agents are the new front desk.''} \\
+    -- Digital Health Strategist, Accenture
+\end{flushright}
+
 \end{document}
