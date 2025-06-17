@@ -71,11 +71,9 @@ def generate_pdf():
                 text=True
             )
             if result.returncode != 0:
-                logger.error(f"LaTeX compilation error (run {i+1}):")
-                logger.error(result.stderr)
+                logger.error(f"LaTeX compilation error (run {i+1}): {result.stderr}")
                 return {"error": f"PDF generation failed: {result.stderr}"}, 500
-            logger.debug(f"LaTeX compilation output (run {i+1}):")
-            logger.debug(result.stdout)
+            logger.debug(f"LaTeX compilation output (run {i+1}): {result.stdout}")
 
         if not os.path.exists(temp_pdf_file):
             logger.error("PDF file was not created after compilation")
